@@ -183,6 +183,7 @@ namespace MMUIEditor
         public string m_strImgFilename = "";
         private string m_strDropdownListItem;
         private string m_strImageTriggerPos = "";
+        private string m_strVariable = "";
 
         //
         public TestStruct()
@@ -414,6 +415,126 @@ namespace MMUIEditor
             {
                 m_TestArray = value;
             }
+        }
+
+        //
+        [Category("Test")]
+        [Description("Test CustomDropdown list With one Button")]
+        [EditorAttribute(typeof(CustomDropdownListWithButtonEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        public string TestCustomDropdownList
+        {
+            get { return m_strVariable; }
+            set { m_strVariable = value; }
+        }
+
+        //
+        public class CustomDropdownListWithButtonEditor : UITypeEditor
+        {
+            //
+            public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
+            {
+                return UITypeEditorEditStyle.DropDown;
+            }
+
+            //
+            public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
+            {
+                IWindowsFormsEditorService _editorService = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
+
+                if(_editorService != null)
+                {
+                    var popedControl = new MMEditorControl(_editorService);
+                    _editorService.DropDownControl(popedControl);
+                    value = popedControl.result;
+
+                    return value;
+                }
+                return base.EditValue(context, provider, value);
+            }
+        }
+
+        public class MMEditorControl : UserControl, IDisposable
+        {
+            public MMEditorControl(IWindowsFormsEditorService iEdService)
+            {
+                _editorService = iEdService;
+
+                this._ListBox = new System.Windows.Forms.ListBox();
+                this._ListBox.FormattingEnabled = true;
+                this._ListBox.Items.AddRange(new object[] {
+                                "AAAAAAA",
+                                "BBBBBBBBBBBBBBBBBBBB",
+                                "CCCC",
+                                "DDDDDDDDD",
+                                "EEEEEEEEEEE",
+                                "FFFFF",
+                                "GGGGGGGGGGGGG",
+                                "IIII",
+                                "JJJJJJ",
+                                "KKKKKKKKKKKK"});
+                this._ListBox.Location = new System.Drawing.Point(0, 0);
+                this._ListBox.Name = "comboBox1";
+                this._ListBox.Size = new System.Drawing.Size(250, 210);
+                this._ListBox.TabIndex = 1;
+                this._ListBox.SelectedIndexChanged += _ListBox_SelectedIndexChanged;
+
+                this._ButtonEdit = new Button();
+                this._ButtonEdit.Text = "Edit";
+                this._ButtonEdit.Location = new System.Drawing.Point(250, 30);
+                this._ButtonEdit.Width = 50;
+                this._ButtonEdit.Click += _ButtonEdit_Click;
+
+                this._ButtonSelect = new Button();
+                this._ButtonSelect.Text = "Select";
+                this._ButtonSelect.Location = new System.Drawing.Point(250, 00);
+                this._ButtonSelect.Width = 50;
+                this._ButtonSelect.Click += _ButtonSelect_Click;
+
+                this.SuspendLayout();
+                //this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+                this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+                this.Controls.Add(this._ListBox);
+                this.Controls.Add(this._ButtonEdit);
+                this.Controls.Add(this._ButtonSelect);
+                this.Name = "MMEditorControl";
+                this.Size = new System.Drawing.Size(300, 200);
+                this.ResumeLayout(false);
+                this.PerformLayout();
+            }
+
+            private void _ButtonEdit_Click(object sender, EventArgs e)
+            {
+                Form2 f = new Form2();
+                f.ShowDialog();
+                f = null;
+            }
+
+            private void _ButtonSelect_Click(object sender, EventArgs e)
+            {
+                _editorService.CloseDropDown();
+            }
+
+            private void _ListBox_SelectedIndexChanged(object sender, EventArgs e)
+            {
+                result = (string)this._ListBox.Items[this._ListBox.SelectedIndex];
+            }
+
+            public new void Dispose()
+            {
+                base.Dispose();
+
+                _ListBox.Items.Clear();
+                _ListBox = null;
+                _ButtonEdit = null;
+                _ButtonSelect = null;
+            }
+
+            //
+            private ListBox _ListBox;
+            private Button _ButtonEdit;
+            private Button _ButtonSelect;
+            public string result = "";
+            private IWindowsFormsEditorService _editorService;
         }
     }
 }

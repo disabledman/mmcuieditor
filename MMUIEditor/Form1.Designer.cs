@@ -44,10 +44,10 @@
             this.contextMenuObjects = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newGroupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.pictureBoxWorking = new System.Windows.Forms.PictureBox();
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
-            this.newTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panelBG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -82,32 +82,32 @@
             this.saveAsToolStripMenuItem,
             this.exportToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.saveAsToolStripMenuItem.Text = "SaveAs";
             // 
             // exportToolStripMenuItem
             // 
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.exportToolStripMenuItem.Text = "Export";
             // 
             // statusStrip1
@@ -169,6 +169,7 @@
             // 
             this.treeViewObjects.ContextMenuStrip = this.contextMenuObjects;
             this.treeViewObjects.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewObjects.Font = new System.Drawing.Font("新細明體", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.treeViewObjects.HideSelection = false;
             this.treeViewObjects.HotTracking = true;
             this.treeViewObjects.Location = new System.Drawing.Point(3, 3);
@@ -185,21 +186,28 @@
             this.newImageToolStripMenuItem,
             this.newTestToolStripMenuItem});
             this.contextMenuObjects.Name = "contextMenuObjects";
-            this.contextMenuObjects.Size = new System.Drawing.Size(153, 92);
+            this.contextMenuObjects.Size = new System.Drawing.Size(137, 70);
             // 
             // newGroupToolStripMenuItem
             // 
             this.newGroupToolStripMenuItem.Name = "newGroupToolStripMenuItem";
-            this.newGroupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newGroupToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.newGroupToolStripMenuItem.Text = "new Group";
             this.newGroupToolStripMenuItem.Click += new System.EventHandler(this.newGroupToolStripMenuItem_Click);
             // 
             // newImageToolStripMenuItem
             // 
             this.newImageToolStripMenuItem.Name = "newImageToolStripMenuItem";
-            this.newImageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newImageToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.newImageToolStripMenuItem.Text = "new Image";
             this.newImageToolStripMenuItem.Click += new System.EventHandler(this.newImageToolStripMenuItem_Click);
+            // 
+            // newTestToolStripMenuItem
+            // 
+            this.newTestToolStripMenuItem.Name = "newTestToolStripMenuItem";
+            this.newTestToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.newTestToolStripMenuItem.Text = "new Test";
+            this.newTestToolStripMenuItem.Click += new System.EventHandler(this.newTestToolStripMenuItem_Click);
             // 
             // splitContainer2
             // 
@@ -231,17 +239,11 @@
             // 
             this.propertyGrid1.CategoryForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.propertyGrid1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.propertyGrid1.Font = new System.Drawing.Font("新細明體", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.propertyGrid1.Location = new System.Drawing.Point(0, 0);
             this.propertyGrid1.Name = "propertyGrid1";
             this.propertyGrid1.Size = new System.Drawing.Size(175, 356);
             this.propertyGrid1.TabIndex = 0;
-            // 
-            // newTestToolStripMenuItem
-            // 
-            this.newTestToolStripMenuItem.Name = "newTestToolStripMenuItem";
-            this.newTestToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newTestToolStripMenuItem.Text = "new Test";
-            this.newTestToolStripMenuItem.Click += new System.EventHandler(this.newTestToolStripMenuItem_Click);
             // 
             // Form1
             // 
