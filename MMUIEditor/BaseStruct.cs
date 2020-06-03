@@ -78,9 +78,9 @@ namespace MMUIEditor
         //
         public void Dispose()
         {
+            m_ChildNodes.ForEach(a => a.Dispose());
             m_ChildNodes.Clear();
-            //
-            GC.SuppressFinalize(this);
+            m_ChildNodes = null;
         }
     }
 }
